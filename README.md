@@ -1,5 +1,5 @@
-# Name
-Kalpesh Patel
+# Kalpesh Patel
+
 Welcome to my portfolio
 
 ### Professional Bio

@@ -16,7 +16,7 @@ MBA in Business Management and Sustainability.
 
 Master of Servant Leadership.
 
-Associated degree of Webdeveloper and mobile app developer.
+Associated degree of Web developer and mobile app developer.
 
 Experience in web & mobile app development, consulting, and hotel operations.
 

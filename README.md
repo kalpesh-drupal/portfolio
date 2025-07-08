@@ -14,6 +14,6 @@ MBA in Business Management and Sustainability
 Experience in web & mobile app development, consulting, and hotel operations
 Developed sites for high-profile clients including Harvard and Enfamil
    
-###Personal Value Proposition
+### Personal Value Proposition
 I bridge the gap between business goals and technical solutions. My ability to understand client needs, combined with my development skills, allows me to deliver digital products that not only function seamlessly but also drive results. Whether you’re a startup or an enterprise, I offer the professionalism, experience, and innovation to move your vision forward.
   

@@ -11,10 +11,15 @@ With experience in developing websites for reputable organizations such as Harva
 
 ### Background and Education Highlights
 Master of Science in IT (AI specialization).
+
 MBA in Business Management and Sustainability.
+
 Master of Servant Leadership.
+
 Associated degree of Webdeveloper and mobile app developer.
+
 Experience in web & mobile app development, consulting, and hotel operations.
+
 Developed sites for high-profile clients including Harvard and Enfamil.
    
 ### Personal Value Proposition

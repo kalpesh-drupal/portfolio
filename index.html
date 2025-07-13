@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalpeshkmar | AI/ML Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #0f3460;
+      --highlight: #e94560;
+      --light: #f8f9fa;
+      --dark: #0d1117;
+      --gray: #6c757d;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 4rem 1rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.03)" points="0,0 100,0 0,100"/></svg>');
+      background-size: 100% 100%;
+    }
+
+    .header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .header .lead {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-pills .nav-link {
+      color: var(--primary);
+      font-weight: 500;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-pills .nav-link.active,
+    .nav-pills .nav-link:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--highlight);
+      border-radius: 2px;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      background: white;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .card-img-top {
+      height: 240px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+      transform: scale(1.03);
+    }
+
+    .card-body {
+      padding: 1.8rem;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .card-text {
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      border-radius: 30px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(10, 26, 70, 0.2);
+    }
+
+    .btn-outline-secondary {
+      border-radius: 30px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-secondary:hover {
+      background: var(--light);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .about-section {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 2.5rem;
+      margin-top: -80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      margin: -100px auto 30px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(25, 113, 194, 0.05);
+      border-radius: 15px;
+      min-width: 180px;
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-5px);
+      background: rgba(25, 113, 194, 0.1);
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 0;
+      margin-top: 5rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--highlight);
+      transform: translateY(-5px);
+    }
+
+    .copyright {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .tech-item {
+      background: rgba(233, 69, 96, 0.1);
+      color: var(--highlight);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .project-highlight {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+      color: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-img-container {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+
+    .project-img-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 1; /* Changed from 0 to 1 to make it always visible */
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover .project-img-overlay {
+      opacity: 1;
+    }
+
+    .project-category {
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 3rem 1rem 5rem;
+      }
+
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .header .lead {
+        font-size: 1.2rem;
+      }
+
+      .about-section {
+        padding: 1.5rem;
+      }
+
+      .stats-container {
+        gap: 1rem;
+      }
+
+      .stat-box {
+        min-width: 140px;
+        padding: 1rem;
+      }
+
+      .stat-value {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <div class="container">
+      <h1>Kalpeshkmar</h1>
+      <p class="lead">AI & ML Specialist | Data Scientist | Machine Learning Engineer</p>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="container">
+    <div class="about-section">
+      <div class="profile-img">
+        KP
+      </div>
+      <div class="text-center">
+        <h2 class="section-title">About Me</h2>
+        <p class="lead">I'm a passionate AI and Machine Learning specialist with expertise in developing cutting-edge solutions for real-world problems. With a strong foundation in statistical modeling, deep learning, and data analysis, I transform complex data into actionable insights.</p>
+
+        <div class="tech-stack">
+          <span class="tech-item">Python</span>
+          <span class="tech-item">TensorFlow</span>
+          <span class="tech-item">PyTorch</span>
+          <span class="tech-item">Scikit-Learn</span>
+          <span class="tech-item">Bayesian Statistics</span>
+          <span class="tech-item">Data Visualization</span>
+          <span class="tech-item">Cloud Computing</span>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-value">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">97%</div>
+            <div class="stat-label">Model Accuracy</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Certifications</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="container my-5">
+    <ul class="nav nav-pills justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#projects">Projects</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#skills">Skills</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#experience">Experience</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Projects Section -->
+  <div class="container my-5" id="projects">
+    <h2 class="section-title">AI & ML Project Portfolio</h2>
+
+    <div class="row g-4">
+      <!-- Artifact 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div class="project-img-container" style="background: #1a1a2e; padding: 1rem; text-align: center;">
+            <img src="artifacts/artifact1/Timeline.png" class="img-fluid" alt="AI & ML Timeline" style="max-height: 200px; width: 100%; object-fit: contain;">
+            <div class="project-img-overlay">
+              <p class="project-category">Historical Analysis</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Artifact 1: AI & ML Timeline</h5>
+            <p class="card-text">A visual timeline showing the evolution of Artificial Intelligence and Machine Learning from the 1950s to the present day. This showcases historical understanding and visualization skills.</p>
+            <div class="d-flex mt-auto">
+              <a href="artifacts/artifact1/timeline.html" class="btn btn-primary me-2">View Timeline</a>
+              <a href="https://github.com/kalpesh-drupal/portfolio/tree/main/artifacts/artifact1" target="_blank" class="btn btn-outline-secondary">Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artifact 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div class="project-img-container">
+            <img src="artifacts/artifact1/House price.png" class="card-img-top" alt="House Price Prediction">
+            <div class="project-img-overlay">
+              <p class="project-category">Regression Model</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Artifact 2: House Price Prediction</h5>
+            <p class="card-text">Bayesian regression model for real estate valuation with uncertainty quantification. Achieved 94.7% R² score with comprehensive feature analysis and prediction intervals.</p>
+            <div class="d-flex mt-auto">
+              <a href="artifacts/artifact2/" class="btn btn-primary me-2">View Project</a>
+              <a href="https://github.com/kalpesh-drupal/portfolio/blob/main/artifacts/artifact2/bayesian-regression-house-price-prediction%20kalpesh.ipynb" target="_blank" class="btn btn-outline-secondary">View Notebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Artifact 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
+          <div class="project-img-container">
+            <img src="artifacts/artifact1/breast cancer.png" class="card-img-top" alt="Breast Cancer Prediction">
+            <div class="project-img-overlay">
+              <p class="project-category">Medical AI</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Artifact 3: Breast Cancer Prediction</h5>
+            <p class="card-text">ML classification model achieving 98.24% accuracy in breast cancer diagnosis. Features include model evaluation, feature importance analysis, and comprehensive performance metrics.</p>
+            <div class="d-flex mt-auto">
+              <a href="artifacts/artifact3/" class="btn btn-primary me-2">View Project</a>
+              <a href="https://github.com/kalpesh-drupal/portfolio/blob/main/artifacts/artifact3/breast-cancer-prediction-accuracy-98-24.ipynb" target="_blank" class="btn btn-outline-secondary">View Notebook</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills Section -->
+  <div class="container my-5 py-5" id="skills">
+    <h2 class="section-title">Technical Expertise</h2>
+
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-primary"><i class="fas fa-brain me-2"></i> Machine Learning</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Supervised Learning
+                <span class="badge bg-primary rounded-pill">Expert</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Bayesian Methods
+                <span class="badge bg-primary rounded-pill">Expert</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Ensemble Methods
+                <span class="badge bg-primary rounded-pill">Advanced</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Neural Networks
+                <span class="badge bg-primary rounded-pill">Advanced</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title text-primary"><i class="fas fa-chart-line me-2"></i> Data Science</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Data Visualization
+                <span class="badge bg-primary rounded-pill">Expert</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Statistical Analysis
+                <span class="badge bg-primary rounded-pill">Expert</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Feature Engineering
+                <span class="badge bg-primary rounded-pill">Advanced</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Big Data Processing
+                <span class="badge bg-primary rounded-pill">Intermediate</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <h3>Kalpeshkmar</h3>
+        <p>Transforming data into intelligent solutions</p>
+
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-medium-m"></i></a>
+        </div>
+
+        <div class="copyright">
+          &copy; 2025 Kalpeshkmar. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('div[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+
+        if(pageYOffset >= (sectionTop - sectionHeight/3)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if(link.getAttribute('href').substring(1) === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

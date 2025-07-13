@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI & ML Timeline | Kalpeshkmar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #1a1a2e;
+      --secondary-color: #0f3460;
+      --accent-color: #e94560;
+      --light-color: #f8f9fa;
+      --dark-color: #16213e;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header h1 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--primary-color);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+      border-radius: 3px;
+    }
+    
+    .timeline-container {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    
+    .timeline-container.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-container.left {
+      left: 0;
+    }
+    
+    .timeline-container.right {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .timeline-content h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .timeline-content p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-date {
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .timeline-container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid var(--accent-color);
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    
+    .right::after {
+      left: -16px;
+    }
+    
+    .timeline-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tag {
+      display: inline-block;
+      background-color: #e0e0e0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    
+    .tag.ml { background-color: #e3f2fd; color: #1565c0; }
+    .tag.ai { background-color: #e8f5e9; color: #2e7d32; }
+    .tag.dl { background-color: #f3e5f5; color: #7b1fa2; }
+    .tag.hw { background-color: #fff3e0; color: #e65100; }
+    
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      
+      .left::after, .right::after {
+        left: 15px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+    }
+    
+    .footer {
+      background-color: var(--dark-color);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    
+    .footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .back-to-portfolio {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.5rem 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--accent-color);
+    }
+    
+    .back-to-portfolio:hover {
+      background-color: transparent;
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <h1><i class="fas fa-robot me-2"></i>Evolution of Artificial Intelligence & Machine Learning</h1>
+      <p>A comprehensive timeline showcasing the key milestones and breakthroughs in AI and ML from the 1950s to the present day.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <!-- 1950s -->
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>The Birth of AI</h2>
+        <span class="timeline-date">1950</span>
+        <p>Alan Turing publishes "Computing Machinery and Intelligence," proposing the Turing Test as a measure of machine intelligence.</p>
+        <span class="tag ai">AI Foundations</span>
+        <span class="tag">Turing</span>
+      </div>
+    </div>
+    
+    <div class="timeline-container right">
+      <div class="timeline-content">
+        <h2>Dartmouth Workshop</h2>
+        <span class="timeline-date">1956</span>
+        <p>John McCarthy coins the term "Artificial Intelligence" at the Dartmouth Conference, marking the official birth of AI as a field of study.</p>
+        <span class="tag ai">AI Foundations</span>
+        <span class="tag">McCarthy</span>
+      </div>
+    </div>
+    
+    <!-- 1960s -->
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>ELIZA: The First Chatbot</h2>
+        <span class="timeline-date">1966</span>
+        <p>Joseph Weizenbaum creates ELIZA, an early natural language processing program that simulated conversation by pattern matching and substitution methodology.</p>
+        <span class="tag ai">NLP</span>
+        <span class="tag">Chatbots</span>
+      </div>
+    </div>
+    
+    <!-- 1970s -->
+    <div class="timeline-container right">
+      <div class="timeline-content">
+        <h2>First AI Winter</h2>
+        <span class="timeline-date">1974-1980</span>
+        <p>Decreased funding and interest in AI research due to overpromising and underdelivering on AI capabilities, leading to the first AI winter.</p>
+        <span class="tag">History</span>
+      </div>
+    </div>
+    
+    <!-- 1980s -->
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>Expert Systems Rise</h2>
+        <span class="timeline-date">1980s</span>
+        <p>Expert systems, computer systems that emulate the decision-making ability of a human expert, become commercially successful in specialized domains.</p>
+        <span class="tag ai">Expert Systems</span>
+      </div>
+    </div>
+    
+    <!-- 1990s -->
+    <div class="timeline-container right">
+      <div class="timeline-content">
+        <h2>Deep Blue Defeats Kasparov</h2>
+        <span class="timeline-date">1997</span>
+        <p>IBM's Deep Blue becomes the first computer to defeat a reigning world chess champion, Garry Kasparov, in a match under standard chess tournament time controls.</p>
+        <span class="tag">Game AI</span>
+        <span class="tag hw">Hardware</span>
+      </div>
+    </div>
+    
+    <!-- 2000s -->
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>Rise of Machine Learning</h2>
+        <span class="timeline-date">2006</span>
+        <p>Geoffrey Hinton coins the term "Deep Learning" to explain new algorithms that help computers recognize objects and text in images and videos.</p>
+        <span class="tag dl">Deep Learning</span>
+        <span class="tag ml">Machine Learning</span>
+      </div>
+    </div>
+    
+    <!-- 2010s -->
+    <div class="timeline-container right">
+      <div class="timeline-content">
+        <h2>AlexNet and the Deep Learning Revolution</h2>
+        <span class="timeline-date">2012</span>
+        <p>AlexNet, a deep convolutional neural network, wins the ImageNet competition by a significant margin, sparking widespread interest in deep learning.</p>
+        <span class="tag dl">Deep Learning</span>
+        <span class="tag">Computer Vision</span>
+      </div>
+    </div>
+    
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>AlphaGo Defeats World Champion</h2>
+        <span class="timeline-date">2016</span>
+        <p>Google DeepMind's AlphaGo defeats world champion Lee Sedol in the complex board game Go, a major milestone in AI development.</p>
+        <span class="tag dl">Deep Learning</span>
+        <span class="tag">Reinforcement Learning</span>
+      </div>
+    </div>
+    
+    <!-- 2020s -->
+    <div class="timeline-container right">
+      <div class="timeline-content">
+        <h2>GPT-3 and Large Language Models</h2>
+        <span class="timeline-date">2020</span>
+        <p>OpenAI releases GPT-3, a state-of-the-art language model with 175 billion parameters, demonstrating remarkable capabilities in natural language understanding and generation.</p>
+        <span class="tag ai">NLP</span>
+        <span class="tag dl">Deep Learning</span>
+      </div>
+    </div>
+    
+    <div class="timeline-container left">
+      <div class="timeline-content">
+        <h2>Generative AI Explosion</h2>
+        <span class="timeline-date">2022-2023</span>
+        <p>Rapid advancement in generative AI models like DALL-E, Midjourney, and Stable Diffusion for image generation, and ChatGPT for conversational AI, bringing AI capabilities to mainstream users.</p>
+        <span class="tag dl">Generative AI</span>
+        <span class="tag ai">Creative AI</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container text-center mb-5">
+    <a href="../../index.html" class="back-to-portfolio">
+      <i class="fas fa-arrow-left me-2"></i>Back to Portfolio
+    </a>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Kalpeshkmar | AI & ML Portfolio</p>
+      <p>Created with ❤️ for educational purposes</p>
+    </div>
+  </footer>
+
+  <script>
+    // Animate timeline items as they come into view
+    const timelineItems = document.querySelectorAll('.timeline-container');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    timelineItems.forEach(item => {
+      observer.observe(item);
+    });
+    
+    // Add animation delay for staggered effect
+    timelineItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

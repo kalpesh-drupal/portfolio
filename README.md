@@ -1,6 +1,4 @@
-Here is an edited and polished version of your README content with improved clarity, structure, and professional tone:
 
----
 
 # **Professional Portfolio**
 
@@ -15,6 +13,14 @@ Welcome to my professional portfolio. This space showcases selected artifacts, b
 This artifact offers a visual and narrative timeline highlighting major milestones in Artificial Intelligence and Machine Learning. It demonstrates my historical understanding, research capabilities, and ability to present complex information clearly.
 
 🔗 [View Artifact 1](artifacts/artifact1/index.html)
+
+---
+
+### 📌 Artifact 2 – AI & Sustainability Infographic
+
+This infographic highlights how Artificial Intelligence can support sustainable practices across various industries. It demonstrates my ability to translate research and complex data into engaging, easy-to-understand visual content, reinforcing the intersection of technology and responsible business.
+
+🔗 [View Artifact 2](artifacts/artifact2/index.html)
 
 ---
 
@@ -57,3 +63,4 @@ I connect business goals with practical technical solutions. My ability to deepl
 *Hosted on GitHub Pages — Theme by Orderedlist*
 
 ---
+

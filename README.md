@@ -1,7 +1,3 @@
-Here is an edited and polished version of your README content with improved clarity, structure, and professional tone:
-
----
-
 # **Professional Portfolio**
 
 **Kalpesh Patel**
@@ -10,11 +6,19 @@ Welcome to my professional portfolio. This space showcases selected artifacts, b
 
 ---
 
-### 📌 Artifact 1 – AI and ML Timeline
+### 📌 Artifact 1 – House Price Prediction Model
 
-This artifact offers a visual and narrative timeline highlighting major milestones in Artificial Intelligence and Machine Learning. It demonstrates my historical understanding, research capabilities, and ability to present complex information clearly.
+This artifact demonstrates a Bayesian regression model for real estate valuation with uncertainty quantification. Achieved 94.7% R² score with comprehensive feature analysis and prediction intervals, showcasing advanced statistical modeling and machine learning techniques.
 
 🔗 [View Artifact 1](artifacts/artifact1/index.html)
+
+---
+
+### 📌 Artifact 2 – Breast Cancer Prediction Model
+
+This artifact showcases a breast cancer prediction model using logistic regression and random forest classifiers. Achieved 98.24% accuracy through feature selection and cross-validation, demonstrating applied machine learning for healthcare data analysis.
+
+🔗 [View Artifact 2](artifacts/artifact3/index.html)
 
 ---
 

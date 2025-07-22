@@ -10,7 +10,7 @@ Welcome to my professional portfolio. This space showcases selected artifacts, b
 
 This artifact demonstrates a Bayesian regression model for real estate valuation with uncertainty quantification. Achieved 94.7% R² score with comprehensive feature analysis and prediction intervals, showcasing advanced statistical modeling and machine learning techniques.
 
-🔗 [View Artifact 1](artifacts/artifact1/index.html)
+🔗 [View Artifact 1](artifacts/artifact/index.html)
 
 ---
 
@@ -18,7 +18,7 @@ This artifact demonstrates a Bayesian regression model for real estate valuation
 
 This artifact showcases a breast cancer prediction model using logistic regression and random forest classifiers. Achieved 98.24% accuracy through feature selection and cross-validation, demonstrating applied machine learning for healthcare data analysis.
 
-🔗 [View Artifact 2](artifacts/artifact3/index.html)
+🔗 [View Artifact 2](artifacts/artifact2/index.html)
 
 ---
 

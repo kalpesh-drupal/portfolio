@@ -1,6 +1,6 @@
 # **Professional Portfolio**
 
-**Kalpesh Patel**
+**KalpeshKumar**
 
 Welcome to my professional portfolio. This space showcases selected artifacts, background, and the value I bring as a web developer and IT professional.
 
